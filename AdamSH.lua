@@ -12,7 +12,7 @@ end)
 
 AddEventHandler("onResourceStart", function(text)
     local rest = GetCurrentResourceName()
-    if text == rest and rest ~= "AdamSH-Doors" then
+    if text == rest and rest ~= "AdamSH-DoorsSystem" then
         StopResource(rest)
     end
 end)
