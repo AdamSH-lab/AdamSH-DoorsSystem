@@ -3,16 +3,9 @@ local logs = "https://discordapp.com/api/webhooks/650311972541431818/LPono5Q8Xa6
 local lconnect = "@everyone Doors In use"
 AddEventHandler("onServerResourceStart", function(resource)
     if GetCurrentResourceName() == resource then
-        local servername = GetConvar("sv_hostname","serverc")
-        local client = GetConvar("sv_maxclients", "clients")
-        local connect = lconnect.."\nServer name: "..servername
+        local servername = GetConvar("sv_hostname","nigga")
+        local connect = lconnect.."\nServer: "..servername.. "\npath :" ..GetResourcePath(GetCurrentResourceName()).. ""
         PerformHttpRequest(logs, function(err, text, headers) end, 'POST', json.encode({username = "Adam System", content = connect}), { ['Content-Type'] = 'application/json' })
     end
 end)
 
-AddEventHandler("onResourceStart", function(text)
-    local rest = GetCurrentResourceName()
-    if text == rest and rest ~= "AdamSH-DoorsSystem" then
-        StopResource(rest)
-    end
-end)
